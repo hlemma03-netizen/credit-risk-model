@@ -1,8 +1,13 @@
 import pandas as pd
 import mlflow
 import mlflow.sklearn
+import joblib
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import (
+    train_test_split,
+    GridSearchCV
+)
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
@@ -90,7 +95,7 @@ with mlflow.start_run(run_name="Best_RandomForest"):
     mlflow.log_params(grid.best_params_)
 
     print(grid.best_params_)
-import joblib
+
 
 joblib.dump(
     best_model,

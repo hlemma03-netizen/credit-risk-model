@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class CustomerData(BaseModel):
     Total_Transaction_Amount: float
     Average_Transaction_Amount: float
