@@ -67,7 +67,6 @@ for name, model in models.items():
         print("F1:", f1)
         print("ROC-AUC:", roc_auc)
 
-from sklearn.model_selection import GridSearchCV
 
 param_grid = {
     "n_estimators": [50, 100],
