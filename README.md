@@ -31,3 +31,4 @@ The use of proxy variables introduces several risks. The proxy may not perfectly
 Simple models such as Logistic Regression combined with Weight of Evidence (WoE) transformations offer strong interpretability. Stakeholders can understand how individual features influence predictions, making these models easier to explain and validate.
 
 More advanced models such as Gradient Boosting often achieve higher predictive accuracy by capturing complex patterns in the data. However, these models are generally less transparent and harder to explain. In regulated financial environments, organizations must balance predictive performance against interpretability, compliance requirements, and stakeholder trust.
+
