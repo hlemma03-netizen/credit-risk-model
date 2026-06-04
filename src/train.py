@@ -55,11 +55,6 @@ for name, model in models.items():
         mlflow.log_metric("f1_score", f1)
         mlflow.log_metric("roc_auc", roc_auc)
 
-        mlflow.sklearn.log_model(
-            model,
-            name
-        )
-
         print(f"\n{name}")
         print("Accuracy:", accuracy)
         print("Precision:", precision)
@@ -86,10 +81,18 @@ grid.fit(X_train, y_train)
 best_model = grid.best_estimator_
 
 print(grid.best_params_)
-mlflow.log_params(grid.best_params_)
+with mlflow.start_run(run_name="Best_RandomForest"):
 
-mlflow.sklearn.log_model(
+    grid.fit(X_train, y_train)
+
+    best_model = grid.best_estimator_
+
+    mlflow.log_params(grid.best_params_)
+
+    print(grid.best_params_)
+import joblib
+
+joblib.dump(
     best_model,
-    "best_model",
-    registered_model_name="CreditRiskModel"
+    "best_model.pkl"
 )
